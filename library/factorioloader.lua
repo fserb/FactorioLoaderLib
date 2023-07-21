@@ -148,6 +148,8 @@ local function parse_dependency(dep_string)
     elseif first_char == "?" then
         dependency.type = dependency_type.optional
         start_idx_name_part = 2
+    elseif first_char == "~" then
+        start_idx_name_part = 2        
     elseif first_char == "(" then
         local prefix_remainder = string.sub(dep_string, 2, 3)
         if prefix_remainder == "?)" then
